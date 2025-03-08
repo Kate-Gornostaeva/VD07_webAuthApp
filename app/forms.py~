@@ -28,10 +28,3 @@ class LoginForm(FlaskForm):
     password = PasswordField('Пароль', validators=[DataRequired()])
     remember = BooleanField('Запомни меня')
     submit = SubmitField('Войти')
-
-class ProfileEditForm(FlaskForm):
-    username = StringField('Имя пользователя', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Новый пароль')
-    confirm_password = PasswordField('Подтвердите новый пароль', validators=[EqualTo('password')])
-    submit = SubmitField('Обновить профиль')
