@@ -21,7 +21,7 @@ def register():
         db.session.commit()
         flash('Вы успешно зарегистрировались!', 'success')
         return redirect(url_for('login'))
-    return render_template('register.html', form=form, title='Register')
+    return render_template('register.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -35,7 +35,7 @@ def login():
             return redirect(url_for('home'))
         else:
             flash('Введены неверные данные')
-    return render_template('login.html', form=form, title='Login')
+    return render_template('login.html')
 
 
 @app.route('/logout')
