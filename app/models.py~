@@ -1,9 +1,9 @@
 #Создаем настройки для работы с пользователем
-
-
-from app import db, login_manager
 from flask_login import UserMixin
+from app import db, login_manager
 
+#Создаем декоратор, который будет сообщать Flask,что функция будет использоваться
+#для загрузки пользователя по его ID
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -15,4 +15,4 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(60), nullable=False)
 
     def __repr__(self):
-        return f'User: {self.username}, email: {self.email}'
+        return f"User: {self.username}, email: {self.email}"
